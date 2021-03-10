@@ -19,6 +19,9 @@ body {
     row-gap: 2px;
     justify-items: stretch;
     align-items: stretch;
+    border: 8px solid black;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 #seven {
@@ -78,5 +81,18 @@ body {
 }
 
 #display {
+    display: flex;
+    font-size: 32px;
+    border: 2px solid black;
     grid-area: display;
 }
+
+.calc-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
