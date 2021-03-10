@@ -2,6 +2,15 @@ body {
     background-color: rgb(237, 243, 245);
 }
 
+header {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
 #calculator-body {
     display: grid;
     width: 750px;
@@ -35,6 +44,7 @@ body {
 }
 #divide {
     grid-area: divide;
+    background-color: rgb(158, 250, 235)
 }
 
 #four {
@@ -48,6 +58,7 @@ body {
 }
 #multiply {
     grid-area: multiply;
+    background-color: rgb(158, 250, 235)
 }
 
 #one {
@@ -61,6 +72,7 @@ body {
 }
 #subtract {
     grid-area: subtract;
+    background-color: rgb(158, 250, 235)
 }
 
 #zero {
@@ -71,13 +83,16 @@ body {
 }
 #equals {
     grid-area: equals;
+    background-color: rgb(158, 173, 250);
 }
 #add {
     grid-area: add;
+    background-color: rgb(158, 250, 235)
 }
 
 #clear{
     grid-area: clear;
+    background-color: rgb(250, 189, 158)
 }
 
 #display {

@@ -21,11 +21,14 @@ function buttonClick(input){
     }
     else {
         if (input === "/" || input === "x" || input === "-" || input ==="+"){
-            display.textContent += " " + input + " ";
+            display.textContent += " " + input;
         }
         else {
             if ((previousOperation === "=") && (checkIfNumber(input))){
                 display.textContent = input;
+            }
+            else if (!checkIfNumber(previousOperation)){
+                display.textContent += " " + input;
             }
             else {
                 display.textContent += input;
@@ -36,12 +39,34 @@ function buttonClick(input){
 }
 
 function operate(){
-    let inputs = display.textContent.split(" ");
-    let operators = {"/": divider, "x": multiplier, "-": subtractor, "+": adder};
-    for (let key in operators) {
-        performOperator(key, operators[key], inputs);
+    let inputs = display.textContent.trim().split(" ");
+    if (inputs.length > 1){
+        while (inputs[0] === "-" && inputs[1] === "-"){
+            inputs.shift();
+            inputs.shift();
+        }
+        if (inputs[0] === "-" && checkIfNumber(inputs[1])){
+            inputs[1] = "-" + inputs[1];
+            inputs.shift();
+        }
     }
-    display.textContent = inputs.toString();
+    if (inputs.length === 1){
+        return true;
+    }
+    let operators = {"/": divider, "x": multiplier, "-": subtractor, "+": adder};
+    let flagger = 0;
+    for (let key in operators) {
+        if (performOperator(key, operators[key], inputs)){
+            flagger++;
+        }
+    }
+    if (flagger === 4){
+        display.textContent = inputs.toString();
+    }
+    else{
+        display.textContent = "ERROR"
+        previousOperation = "=";
+    }
 }
 
 function performOperator(opString, func, arr){
