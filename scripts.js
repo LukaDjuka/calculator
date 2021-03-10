@@ -27,7 +27,7 @@ function buttonClick(input){
             if ((previousOperation === "=") && (checkIfNumber(input))){
                 display.textContent = input;
             }
-            else if (!checkIfNumber(previousOperation)){
+            else if ((previousOperation != ".") && (!checkIfNumber(previousOperation))){
                 display.textContent += " " + input;
             }
             else {
@@ -61,7 +61,13 @@ function operate(){
         }
     }
     if (flagger === 4){
-        display.textContent = inputs.toString();
+        if (!(inputs.toString().includes(","))){
+            display.textContent = inputs.toString();
+        }
+        else{
+            display.textContent = "ERROR";
+            previousOperation = "=";
+        }
     }
     else{
         display.textContent = "ERROR"
