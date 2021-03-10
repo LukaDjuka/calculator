@@ -1,11 +1,11 @@
 body {
-    background-color: rgb(233, 232, 232);
+    background-color: rgb(237, 243, 245);
 }
 
 #calculator-body {
     display: grid;
-    width: 1000px;
-    height: 1000px;
+    width: 750px;
+    height: 750px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas: 
@@ -15,11 +15,11 @@ body {
         "one two three subtract clear"
         "zero decimal equals add clear";
 
-    column-gap: 3px;
-    row-gap: 2px;
+    column-gap: 10px;
+    row-gap: 10px;
     justify-items: stretch;
     align-items: stretch;
-    border: 8px solid black;
+    border: 8px solid rgb(118, 120, 121);
     border-radius: 20px;
     padding: 20px;
 }
@@ -83,8 +83,11 @@ body {
 #display {
     display: flex;
     font-size: 32px;
-    border: 2px solid black;
+    border: 2px solid rgb(118, 120, 121);
     grid-area: display;
+    justify-content: flex-end;
+    padding: 15px;
+    align-items: center;
 }
 
 .calc-button {
@@ -92,7 +95,13 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    border: 2px solid black;
+    border: 2px solid rgb(118, 120, 121);
     border-radius: 20px;
 }
+
+.calc-button:hover {
+    border: 2px solid rgb(73, 151, 190);
+    cursor: pointer;
+}
+
 
